@@ -1,63 +1,9 @@
-# Heart-Disease-Predictor
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-import matplotlib.pyplot as plt
+This repository presents a machine learning model designed to predict the likelihood of heart disease in individuals based on various health indicators. By leveraging a dataset containing patient information such as age, gender, blood pressure, cholesterol levels, and more, the model employs advanced algorithms to identify patterns and correlations associated with heart disease.
 
-# loading the csv data to a Pandas DataFrame
-heart_data = pd.read_csv('heart_disease_data.csv')
+Key features of this project include:
+1)Data preprocessing and exploration to understand the dataset
+2)Implementation of various machine learning algorithms (e.g., Logistic Regression, Random Forest, SVM)
+3)Model evaluation and comparison to select the best-performing model
+4)Potential for integration into healthcare systems for early disease detection
 
-# print first 5 rows of the dataset
-heart_data.head()
-
-# print last 5 rows of the dataset
-heart_data.tail()
-
-# number of rows and columns in the dataset
-heart_data.shape
-
-# getting some info about the data
-heart_data.info()
-
-# checking for missing values
-heart_data.isnull().sum()
-
-# statistical measures about the data
-heart_data.describe()
-# checking the distribution of Target Variable
-heart_data['target'].value_counts()
-X = heart_data.drop(columns='target', axis=1)
-Y = heart_data['target']
-print(X)
-
-X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, stratify=Y, random_state=42)
-print(X.shape, X_train.shape, X_test.shape)
-model = LogisticRegression()
-# training the LogisticRegression model with Training data
-model.fit(X_train, Y_train)
-# accuracy on training data
-X_train_prediction = model.predict(X_train)
-training_data_accuracy = accuracy_score(X_train_prediction, Y_train)
-print('Accuracy on Training data : ', training_data_accuracy)
-# accuracy on test data
-X_test_prediction = model.predict(X_test)
-test_data_accuracy = accuracy_score(X_test_prediction, Y_test)
-print('Accuracy on Test data : ', test_data_accuracy)
-
-input_data = (92,1,1,200,400,1,1,310,1,7.6,1,1,1)
-
-# change the input data to a numpy array
-input_data_as_numpy_array= np.asarray(input_data)
-
-# reshape the numpy array as we are predicting for only on instance
-input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
-
-prediction = model.predict(input_data_reshaped)
-print(prediction)
-
-if (prediction[0]== 0):
-  print('The Person does not have a Heart Disease')
-else:
-  print('The Person has Heart Disease')
+This project aims to contribute to the early detection and prevention of heart disease through the power of machine learning.
