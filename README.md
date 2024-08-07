@@ -12,3 +12,5 @@ Key features of this project include:
 4)Potential for integration into healthcare systems for early disease detection
 
 This project aims to contribute to the early detection and prevention of heart disease through the power of machine learning.
+
+![image](https://github.com/user-attachments/assets/00a2438b-a4b9-4376-b661-86309a70d1bf)
